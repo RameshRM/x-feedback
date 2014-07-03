@@ -1,0 +1,43 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<polymer-element name="feedback" attributes="" >
+<template>
+    <div class="feedback-overlay" style="">
+        <div class="feedback-modal">
+            <header>Feedback</header>
+            <form>
+                <div>
+                    <label class="blackout-label float-clear">
+                        <span class="float-left"><b>Blackout</b> personal information: </span>
+                        <input type="checkbox" class="blackout-check float-right"></input>
+                    </label>
+                </div>
+                <h5 class="label">Tell us your comments or suggestions.</h5>
+
+                <textarea rows="10" cols="10"></textarea>
+                <section class="action-bar">
+                    <input type="submit" value="Send" class="btn btn-g"/>
+                    <input type="reset" value="Cancel" class=""/>
+                </section>
+            </form>
+            <div class="feedback-confirm">
+                <p>Thank you for <b>Submitting Feedback</b> </p>
+                <form>
+                    <input type="submit" value="Close" class="btn btn-g"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>
+<script type="text/javascript" src="./feedback.js"></script>
+<script type="text/javascript">
+    Polymer('feedback', {
+        config: {},
+        ready: function() {
+            var self = this;
+        }
+    });
+</script>
+
+</polymer-element>
+

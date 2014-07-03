@@ -1,0 +1,26 @@
+{
+    "name": "polymer-autocomplete",
+    "version": "0.0.1",
+    "homepage": "https://github.com/RameshRM/polymer-feedback",
+    "authors": [
+        "ramahadevan <ramahadevan@ebay.com>"
+    ],
+    "description": "Polymer",
+    "keywords": [
+        "Web-Components",
+        "Polymer",
+        "feedback"
+    ],
+    "license": "GNU GENERAL PUBLIC LICENSE",
+    "dependencies": {
+        "polymer": "Polymer/polymer",
+        "platform": "Polymer/platform"
+    },
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ]
+}

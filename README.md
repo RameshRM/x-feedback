@@ -1,4 +1,4 @@
 polymer-feedback
 ================
 
-Feedback inspired by Google Maps screen capture
+Feedback component inspired by Google Maps screen capture
