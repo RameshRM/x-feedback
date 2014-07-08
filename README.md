@@ -72,6 +72,20 @@ Add ```polymer-feedback``` markup to your page
     });
 ```
 
+### Customizeable Attributes
+
+Feedback component provides options to customize the component.  Following are the list of attributes supported.
+
+| Attribute Name     | Type      | Description
+|--------------------|-----------|-------------
+| feedbackBtnText    | String    | Button text to be displayed in "Feedback / Comments" button. Default is "Feedback"
+| feedbackTitle      | String    | Feedback modal title, Default is "Feedback"
+| cancelBtnText      | String    | Cancel Button Text, default is "cancel"
+| feedbackDesc       | String    | Description for Feedback form.
+| submitBtnText      | String    | Submit Button text, default is "send"
+| position           | String    | Position of "Feedback" button, possible values are `rightfix, leftfix, toprightfix, bottomleftfix, bottomrightfix`
+
+
 ### Acknowledgement
 
 Thanks to Eric Bidelman , for sharing ScreenShotJS

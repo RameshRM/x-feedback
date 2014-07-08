@@ -1,5 +1,15 @@
-
 (function($root) {
+    function removeHighlights($context){
+        if(typeof $context === 'undefined'){
+            return;
+        }
+        var highlights = $context.querySelectorAll(".highlightor");
+        for(var i=highlights.length;i>=0;i--){
+            if(typeof highlights[i] !== "undefined"){
+                $context.removeChild(highlights[i]);
+            }
+        }
+    }
 
     function prepareHighlightor($context) {
         if (typeof $context !== "undefined") {
@@ -55,6 +65,9 @@
     $root.highlightor = {
         highlight: function($context, blackOut) {
             prepareHighlightor($context);
+        },
+        clearhighlights: function($context){
+            removeHighlights($context);
         }
     }
 }).call(this, (window));

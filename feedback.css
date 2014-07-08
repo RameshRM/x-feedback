@@ -15,16 +15,38 @@
 }
 .feedback{
     position:fixed;
-    right:-50px;
     top:30%;
     z-index:1;
 
     padding:1em;
-    background-color:#3F9C35;
+    background-color:#223233;
     margin-left:1em;
     border:solid 1px transparent;
     -webkit-transform: rotate(-90deg);
     color:white;
+}
+.feedback[data-pos-fix="rightfix"]{
+    right:-50px;
+}
+.feedback[data-pos-fix="leftfix"]{
+    left:-80px;
+}
+.feedback[data-pos-fix="toprightfix"]{
+    right:-50px;
+    top:50px;
+}
+.feedback[data-pos-fix="bottomleftfix"]{
+    left:-20px;
+    top:auto;
+    bottom:0px;
+    -webkit-transform:none;
+}
+
+.feedback[data-pos-fix="bottomrightfix"]{
+    right:0px;
+    top:auto;
+    bottom:0px;
+    -webkit-transform:none;
 }
 
 .feedback-btn{
