@@ -72,6 +72,7 @@
             }else if(this.state === _feedbackStates.complete){
                 data = this.screenCapture();
                 this.visibility = "hidden";
+                this.clearState();
             }
             var feedbackEvent = new CustomEvent(eventName,{"detail":data, state: this.state});
             document.dispatchEvent(feedbackEvent);
