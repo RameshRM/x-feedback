@@ -3,6 +3,17 @@ polymer-feedback
 
 Feedback component inspired by "Google Maps" feedback mechanism
 
+### Pre Requistes
+
+1. [Get Polymer](http://www.polymer-project.org/docs/start/getting-the-code.html)
+
+``` bower install polymer --save ```
+
+2. Add Polymer Platform JS script in your page
+```HTML
+<script src="../bower_components/platform/platform.js"></script>
+```
+
 ### Installation
 
 Install `polymer-feedback` using bower
@@ -60,3 +71,7 @@ Add ```polymer-feedback``` markup to your page
         e.detail; /*** Carries the data for feedback cancelled state ***/
     });
 ```
+
+### Acknowledgement
+
+Thanks to Eric Bidelman , for sharing ScreenShotJS
