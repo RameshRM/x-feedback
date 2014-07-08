@@ -1,3 +1,8 @@
+:host{
+}
+.different{
+    border:solid 1px red;
+}
 .float-clear{
     clear:both;
     overflow:hidden;
@@ -10,18 +15,27 @@
 }
 .feedback{
     position:fixed;
-    right:-65px;
+    right:-50px;
     top:30%;
+    z-index:1;
+
     padding:1em;
-    background-color:#565656;
+    background-color:#3F9C35;
     margin-left:1em;
-    border:solid 1px #3d3d3d;
-    -webkit-transform: rotate(90deg);
+    border:solid 1px transparent;
+    -webkit-transform: rotate(-90deg);
     color:white;
-    z-index:12;
 }
+
 .feedback-btn{
     outline:0px;
+    background-color:transparent;
+    background: transparent;
+    border: none;
+    color: white;
+    text-transform: lowercase;
+    font-size: initial;
+    cursor:pointer;
 }
 .feedback[data-isbusy="true"]{
 }
@@ -53,7 +67,6 @@
     background-color:green;
 }
 .feedback input[type="button"]{
-    text-transform: uppercase;
     letter-spacing:5px;
     -webkit-appearance: none;
     background-color:transparent;
@@ -66,6 +79,9 @@
 }
 .feedback-overlay{
     width:100%;height:100%;position: absolute;background-attachment:scroll;background-color: rgba(255,255,255,0.18);left: 0px;top: 0px;z-index: 11;display: block;
+    cursor:crosshair;
+    -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none;
+
 }
 .feedback-modal {
     /* some styles to position the modal at the center of the page */
@@ -82,11 +98,21 @@
     border:solid 1px #aaa;
     text-align: center;
     font-size:large;
-    display:none;
     top: 10%;
     cursor:auto;
     z-index:14;
+    -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none;
+
 }
+.hidden{
+    display:none;
+    visibility: hidden
+}
+.visible{
+    display:block;
+    visibility: visible;
+}
+
 .feedback-modal > header{
     -webkit-background-clip: border-box;
     -webkit-background-origin: padding-box;
@@ -100,7 +126,6 @@
     border-bottom-style: solid;
     border-bottom-width: 1px;
     color: rgb(255, 255, 255);
-    cursor: crosshair;
     display: block;
     font-size: 18px;
     height: 21px;
@@ -182,6 +207,10 @@ body[data-feedback-state="prepare"] .feedback-modal{
     background:#2c7908;
     text-transform: uppercase;
     outline:0px;
+    border:none;
+    padding:1em;
+    color:white;
+    font-size:initial;
 }
 .feedback-modal textarea{
     width:90%;
@@ -215,7 +244,6 @@ body[data-feedback-state="prepare"] .feedback-modal{
 
 .feedback-modal .action-bar{
     margin-top:1em;
-    border-top:solid 1px #dedede;
 }
 
 .feedback-overlay .feedback-confirm{
@@ -230,11 +258,4 @@ body[data-feedback-state="prepare"] .feedback-modal{
     box-shadow:         3px 3px 5px 3px #ccc;
     cursor:auto;
     display:none;
-}
-body[data-feedback-state="captured"] .feedback-overlay .feedback-modal{
-    display:none;
-}
-
-body[data-feedback-state="captured"] .feedback-overlay .feedback-confirm{
-    display:block;
 }

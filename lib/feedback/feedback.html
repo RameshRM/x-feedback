@@ -1,11 +1,16 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
-<polymer-element name="feedback" attributes="" >
+<polymer-element name="x-feedback" attributes="commentsLabel feedbackLabel">
 <template>
-    <div class="feedback-overlay" style="">
-        <div class="feedback-modal">
+    <link rel="stylesheet" href="feedback.css">
+    <div class="feedback">
+        <input class="feedback-btn" type="button" value="Feedback"></input>
+    </div>
+
+    <div id="feedback-overlay" class="feedback-overlay {{visibility}}" >
+        <div id="feedback-modal" class="feedback-modal {{visibility}}">
             <header>Feedback</header>
-            <form>
+            <form id="feedback-form">
                 <div>
                     <label class="blackout-label float-clear">
                         <span class="float-left"><b>Blackout</b> personal information: </span>
@@ -16,8 +21,11 @@
 
                 <textarea rows="10" cols="10"></textarea>
                 <section class="action-bar">
+
                     <input type="submit" value="Send" class="btn btn-g"/>
-                    <input type="reset" value="Cancel" class=""/>
+
+                    <input type="reset" value="Cancel" id="reset"/>
+
                 </section>
             </form>
             <div class="feedback-confirm">
@@ -29,17 +37,64 @@
         </div>
     </div>
 </template>
-<script type="text/javascript" src="./feedback.js"></script>
+
 <script type="text/javascript">
-    Polymer('feedback', {
+    var _feedbackStates = {init:'init',prepare:'prepare',capture:'capture',complete:'complete',cancel:'cancelled'};
+
+    Polymer('x-feedback', {
+        state:{},
+        visibility:'hidden',
         config: {
 
         },
         ready: function() {
             var self = this;
+            this.addEventListener("click", function() {
+                self.state = _feedbackStates.init;
+            });
+            this.$['feedback-form'].addEventListener("reset",function(){
+                self.notifyEvent(_feedbackStates.cancel);
+            });
+            this.$['feedback-form'].addEventListener("submit",function(e){
+                self.notifyEvent(_feedbackStates.complete);
+                e.preventDefault(true);
+            });
+            highlightor.highlight(this.$['feedback-overlay']);
+        },
+        stateChanged: function(){
+            var data = null;
+            if(this.state === _feedbackStates.init){
+                this.visibility = "visible";
+            }else if(this.state === _feedbackStates.cancel){
+                this.visibility = "hidden";
+                this.clearState();
+            }else if(this.state === _feedbackStates.complete){
+                data = this.screenCapture();
+            }
+            var feedbackEvent = new CustomEvent("x-feedback",{"detail":data, state: this.state});
+            document.dispatchEvent(feedbackEvent);
+        },
+        clearState: function(){
+            var $parent = this.$['feedback-overlay'];
+            var highlights = $parent.querySelectorAll(".highlightor");
+            for(var i=highlights.length;i>=0;i--){
+                if(typeof highlights[i] !== "undefined"){
+                    $parent.removeChild(highlights[i]);
+                }
+            }
+        },
+        notifyEvent : function(currentState){
+            console.log(currentState);
+            this.state = currentState;
+        },
+        screenCapture: function(){
+            return screenshotPage();
         }
     });
 </script>
 
+<script type="text/javascript" src="feedback.js"></script>
+<script type="text/javascript" src="screenshot.js"></script>
+<script type="text/javascript" src="highlightor.js"></script>
 </polymer-element>
 
