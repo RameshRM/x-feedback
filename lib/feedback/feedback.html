@@ -70,6 +70,7 @@
                 this.clearState();
             }else if(this.state === _feedbackStates.complete){
                 data = this.screenCapture();
+                this.visibility = "hidden";
             }
             var feedbackEvent = new CustomEvent("x-feedback",{"detail":data, state: this.state});
             document.dispatchEvent(feedbackEvent);
@@ -84,7 +85,6 @@
             }
         },
         notifyEvent : function(currentState){
-            console.log(currentState);
             this.state = currentState;
         },
         screenCapture: function(){
