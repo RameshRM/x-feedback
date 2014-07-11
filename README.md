@@ -1,4 +1,4 @@
-polymer-feedback
+x-feedback
 ================
 
 Feedback component inspired by "Google Maps" feedback mechanism
@@ -16,10 +16,10 @@ Feedback component inspired by "Google Maps" feedback mechanism
 
 ### Installation
 
-Install `polymer-feedback` using bower
+Install `x-feedback` using bower
 
 ```
-bower install polymer-feedback --save
+bower install x-feedback --save
 ```
 
 ### Usage
@@ -32,13 +32,13 @@ In your layout / html page add the following directive
 
 ```
 <head>
- <link rel="import" href="[relative path bowercomponents]/polymer-feedback/feedback/feedback.html">
+ <link rel="import" href="[relative path bowercomponents]/x-feedback/feedback/feedback.html">
 </head>
 ```
 
 #### Declarative Markup
 
-Add ```polymer-feedback``` markup to your page
+Add ```x-feedback``` markup to your page
 
 ```
 <x-feedback></x-feedback>
